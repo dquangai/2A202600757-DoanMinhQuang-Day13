@@ -10,6 +10,7 @@ from structlog.contextvars import bind_contextvars
 load_dotenv()
 
 from .agent import LabAgent
+from .audit import write_audit_event
 from .dashboard import render_dashboard
 from .incidents import disable, enable, status
 from .logging_config import configure_logging, get_logger
@@ -82,6 +83,21 @@ async def chat(request: Request, body: ChatRequest) -> ChatResponse:
             cost_usd=result.cost_usd,
             payload={"answer_preview": summarize_text(result.answer)},
         )
+        write_audit_event(
+            "chat_completed",
+            service="api",
+            correlation_id=request.state.correlation_id,
+            user_id_hash=hash_user_id(body.user_id),
+            session_id=body.session_id,
+            feature=body.feature,
+            model=agent.model,
+            status="success",
+            latency_ms=result.latency_ms,
+            tokens_in=result.tokens_in,
+            tokens_out=result.tokens_out,
+            cost_usd=result.cost_usd,
+            quality_score=result.quality_score,
+        )
         flush_traces()
         return ChatResponse(
             answer=result.answer,
@@ -100,6 +116,17 @@ async def chat(request: Request, body: ChatRequest) -> ChatResponse:
             service="api",
             error_type=error_type,
             payload={"detail": str(exc), "message_preview": summarize_text(body.message)},
+        )
+        write_audit_event(
+            "chat_failed",
+            service="api",
+            correlation_id=request.state.correlation_id,
+            user_id_hash=hash_user_id(body.user_id),
+            session_id=body.session_id,
+            feature=body.feature,
+            model=agent.model,
+            status="error",
+            error_type=error_type,
         )
         flush_traces()
         raise HTTPException(status_code=500, detail=error_type) from exc

@@ -68,6 +68,7 @@ app/
   main.py                FastAPI app
   agent.py               core agent pipeline
   logging_config.py      structlog config
+  audit.py               sanitized audit trail writer
   middleware.py          correlation ID middleware
   pii.py                 scrubbing helpers
   tracing.py             Langfuse helpers

@@ -85,5 +85,5 @@
 
 ## 6. Bonus Items (Optional)
 - [BONUS_COST_OPTIMIZATION]: Not claimed
-- [BONUS_AUDIT_LOGS]: Not claimed
+- [BONUS_AUDIT_LOGS]: Claimed. The app writes a separate sanitized `data/audit.jsonl` trail for `/chat` outcomes with `correlation_id`, `user_id_hash`, session, feature, model, status, latency, token, cost, and quality fields. Audit records are covered by tests and use the same PII scrubber as application logs.
 - [BONUS_CUSTOM_METRIC]: Error-rate percentage and total error count added to `/metrics`
