@@ -12,7 +12,7 @@ A small FastAPI "agent" instrumented with:
 - minimal metrics aggregation
 - SLOs, alerts, and a blueprint report
 
-This template is intentionally incomplete. Teams are expected to finish TODOs during the lab.
+This repository contains the completed individual Day 13 submission for Doan Minh Quang (`2A202600757`).
 
 ## Suggested lab flow (Gapped Template)
 
@@ -117,7 +117,7 @@ Your final grade is calculated as follows:
    - **Individual Report (20 pts)**: Quality of your specific contributions in `docs/blueprint-template.md`.
    - **Git Evidence (20 pts)**: Traceable work via commits and code ownership.
 
-**Passing Criteria**: 
-- All `TODO` blocks must be completed.
-- Minimum of 10 traces must be visible in Langfuse.
-- Dashboard must show all 6 required panels.
+**Passing Criteria Status**:
+- All implementation gaps are completed.
+- Langfuse trace evidence is captured in `docs/evidence/`.
+- Dashboard shows all 6 required panels.
