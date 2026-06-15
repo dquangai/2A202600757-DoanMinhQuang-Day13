@@ -12,6 +12,17 @@ TRAFFIC: int = 0
 QUALITY_SCORES: list[float] = []
 
 
+def reset() -> None:
+    global TRAFFIC
+    TRAFFIC = 0
+    REQUEST_LATENCIES.clear()
+    REQUEST_COSTS.clear()
+    REQUEST_TOKENS_IN.clear()
+    REQUEST_TOKENS_OUT.clear()
+    ERRORS.clear()
+    QUALITY_SCORES.clear()
+
+
 def record_request(latency_ms: int, cost_usd: float, tokens_in: int, tokens_out: int, quality_score: float) -> None:
     global TRAFFIC
     TRAFFIC += 1
@@ -38,6 +49,8 @@ def percentile(values: list[int], p: int) -> float:
 
 
 def snapshot() -> dict:
+    total_errors = sum(ERRORS.values())
+    total_requests = TRAFFIC + total_errors
     return {
         "traffic": TRAFFIC,
         "latency_p50": percentile(REQUEST_LATENCIES, 50),
@@ -47,6 +60,8 @@ def snapshot() -> dict:
         "total_cost_usd": round(sum(REQUEST_COSTS), 4),
         "tokens_in_total": sum(REQUEST_TOKENS_IN),
         "tokens_out_total": sum(REQUEST_TOKENS_OUT),
+        "total_errors": total_errors,
+        "error_rate_pct": round((total_errors / total_requests) * 100, 2) if total_requests else 0.0,
         "error_breakdown": dict(ERRORS),
         "quality_avg": round(mean(QUALITY_SCORES), 4) if QUALITY_SCORES else 0.0,
     }

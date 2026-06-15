@@ -4,7 +4,7 @@ slis:
   latency_p95_ms:
     objective: 3000
     target: 99.5
-    note: Replace with your group's target
+    note: API P95 should remain below 3s during the rolling 28d window.
   error_rate_pct:
     objective: 2
     target: 99.0

@@ -45,8 +45,21 @@ python scripts/load_test.py --concurrency 5
 python scripts/inject_incident.py --scenario rag_slow
 
 # Check your implementation progress
+python scripts/generate_evidence_logs.py
 python scripts/validate_logs.py
 ```
+
+## Local dashboard
+
+Run the app and open the operational dashboard:
+
+```bash
+uvicorn app.main:app --reload
+# then open http://127.0.0.1:8000/dashboard
+```
+
+The dashboard reads `/metrics` and shows the required Layer-2 panels:
+latency, traffic, error rate, cost, tokens, and quality.
 
 ## Repo map
 
