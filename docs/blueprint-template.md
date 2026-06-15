@@ -4,7 +4,7 @@
 
 ## 1. Individual Metadata
 - [GROUP_NAME]: Individual - 2A202600757 - Doan Minh Quang - Day 13
-- [REPO_URL]: Local submission repository
+- [REPO_URL]: https://github.com/dquangai/2A202600757-DoanMinhQuang-Day13.git
 - [MEMBERS]:
   - Individual: Doan Minh Quang | Student ID: 2A202600757 | Roles: Logging, PII, Tracing, SLO, Alerts, Load Test, Dashboard, Incident Response, Evidence, Report
 
