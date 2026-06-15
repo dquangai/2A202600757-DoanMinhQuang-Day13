@@ -99,14 +99,11 @@ docs/
   mock-debug-qa.md       oral/written debugging questions
 ```
 
-## Team role suggestion
+## Individual submission note
 
-- Member A: logging + PII
-- Member B: tracing + tags
-- Member C: SLO + alerts
-- Member D: load test + incident injection
-- Member E: dashboard + evidence
-- Member F: blueprint + demo lead
+This repository is submitted individually by Doan Minh Quang (`2A202600757`).
+All implementation, evidence, incident response, dashboard, alerts, and report
+sections are completed by the same student.
 
 ## Grading policy (60/40 Split)
 

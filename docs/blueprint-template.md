@@ -1,27 +1,23 @@
-# Day 13 Observability Lab Report
+# Day 13 Observability Lab Individual Report
 
-> **Instruction**: Fill in all sections below. This report is designed to be parsed by an automated grading assistant. Ensure all tags (e.g., `[GROUP_NAME]`) are preserved.
+> **Instruction**: This is an individual submission. Tags such as `[GROUP_NAME]`, `[MEMBERS]`, and `[MEMBER_A_NAME]` are preserved for automated grading compatibility.
 
-## 1. Team Metadata
-- [GROUP_NAME]: 2A202600757 - Doan Minh Quang - Day 13
+## 1. Individual Metadata
+- [GROUP_NAME]: Individual - 2A202600757 - Doan Minh Quang - Day 13
 - [REPO_URL]: Local submission repository
 - [MEMBERS]:
-  - Member A: Doan Minh Quang | Role: Logging & PII
-  - Member B: Doan Minh Quang | Role: Tracing & Enrichment
-  - Member C: Doan Minh Quang | Role: SLO & Alerts
-  - Member D: Doan Minh Quang | Role: Load Test & Dashboard
-  - Member E: Doan Minh Quang | Role: Demo & Report
+  - Individual: Doan Minh Quang | Student ID: 2A202600757 | Roles: Logging, PII, Tracing, SLO, Alerts, Load Test, Dashboard, Incident Response, Evidence, Report
 
 ---
 
-## 2. Group Performance (Auto-Verified)
+## 2. Individual Performance (Auto-Verified)
 - [VALIDATE_LOGS_FINAL_SCORE]: 100/100
-- [TOTAL_TRACES_COUNT]: 10 expected after running `python scripts/load_test.py --concurrency 5` with `LANGFUSE_PUBLIC_KEY` and `LANGFUSE_SECRET_KEY` configured
+- [TOTAL_TRACES_COUNT]: >= 10 traces captured in Langfuse evidence
 - [PII_LEAKS_FOUND]: 0
 
 ---
 
-## 3. Technical Evidence (Group)
+## 3. Technical Evidence (Individual)
 
 ### 3.1 Logging & Tracing
 - [EVIDENCE_CORRELATION_ID_SCREENSHOT]: `docs/evidence/correlation_id.png`
@@ -44,7 +40,7 @@
 
 ---
 
-## 4. Incident Response (Group)
+## 4. Incident Response (Individual)
 - [SCENARIO_NAME]: rag_slow
 - [SYMPTOMS_OBSERVED]: P95 latency rises above the normal ~150ms baseline when retrieval delay is injected.
 - [ROOT_CAUSE_PROVED_BY]: `docs/evidence/incident-rag-slow-load-test.png`, `docs/evidence/Dashboard sau khi bật rag_slow.png`, and `docs/evidence/langfuse-trace-waterfall.png`
@@ -55,24 +51,24 @@
 
 ## 5. Individual Contributions & Evidence
 
-### [MEMBER_A_NAME]
-- [TASKS_COMPLETED]: Implemented recursive PII scrubbing and log processor redaction.
+### [MEMBER_A_NAME]: Doan Minh Quang
+- [TASKS_COMPLETED]: Implemented recursive PII scrubbing, log processor redaction, correlation ID middleware, request context enrichment, Langfuse tracing, metrics, dashboard, SLOs, alerts, incident evidence, and final report.
 - [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
 
-### [MEMBER_B_NAME]
-- [TASKS_COMPLETED]: Added request context enrichment and nested trace observations for RAG and LLM steps.
+### [MEMBER_B_NAME]: Not applicable - individual submission
+- [TASKS_COMPLETED]: Covered by Doan Minh Quang.
 - [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
 
-### [MEMBER_C_NAME]
-- [TASKS_COMPLETED]: Finalized SLO and alert runbook configuration.
+### [MEMBER_C_NAME]: Not applicable - individual submission
+- [TASKS_COMPLETED]: Covered by Doan Minh Quang.
 - [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
 
-### [MEMBER_D_NAME]
-- [TASKS_COMPLETED]: Added `/dashboard` with latency, traffic, error-rate, cost, token, and quality panels.
+### [MEMBER_D_NAME]: Not applicable - individual submission
+- [TASKS_COMPLETED]: Covered by Doan Minh Quang.
 - [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
 
-### [MEMBER_E_NAME]
-- [TASKS_COMPLETED]: Added test coverage and ran `pytest` plus `scripts/validate_logs.py`.
+### [MEMBER_E_NAME]: Not applicable - individual submission
+- [TASKS_COMPLETED]: Covered by Doan Minh Quang.
 - [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
 
 ---
