@@ -75,27 +75,11 @@
 
 ## 5. Individual Contributions & Evidence
 
-### [MEMBER_A_NAME]: Doan Minh Quang
+### [MEMBER]: Doan Minh Quang
 - [TASKS_COMPLETED]: Implemented recursive PII scrubbing, log processor redaction, correlation ID middleware, request context enrichment, Langfuse tracing, metrics, dashboard, SLOs, alerts, incident evidence, and final report.
 - [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
 
 ![Git commit evidence](evidence/git-commit.png)
-
-### [MEMBER_B_NAME]: Not applicable - individual submission
-- [TASKS_COMPLETED]: Covered by Doan Minh Quang.
-- [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
-
-### [MEMBER_C_NAME]: Not applicable - individual submission
-- [TASKS_COMPLETED]: Covered by Doan Minh Quang.
-- [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
-
-### [MEMBER_D_NAME]: Not applicable - individual submission
-- [TASKS_COMPLETED]: Covered by Doan Minh Quang.
-- [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
-
-### [MEMBER_E_NAME]: Not applicable - individual submission
-- [TASKS_COMPLETED]: Covered by Doan Minh Quang.
-- [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
 
 ---
 
