@@ -24,13 +24,13 @@
 ## 3. Technical Evidence (Group)
 
 ### 3.1 Logging & Tracing
-- [EVIDENCE_CORRELATION_ID_SCREENSHOT]: `data/logs.jsonl` contains `req-00000001` through `req-0000000a`
-- [EVIDENCE_PII_REDACTION_SCREENSHOT]: `data/logs.jsonl` shows `[REDACTED_EMAIL]`, `[REDACTED_PHONE_VN]`, and `[REDACTED_CREDIT_CARD]`
-- [EVIDENCE_TRACE_WATERFALL_SCREENSHOT]: Capture from Langfuse after keys are configured
+- [EVIDENCE_CORRELATION_ID_SCREENSHOT]: `docs/evidence/correlation_id.png`
+- [EVIDENCE_PII_REDACTION_SCREENSHOT]: `docs/evidence/REDACTED_EMAIL.png`, `docs/evidence/REDACTED_PHONE_VN.png`, `docs/evidence/REDACTED_CREDIT_CARD.png`
+- [EVIDENCE_TRACE_WATERFALL_SCREENSHOT]: `docs/evidence/langfuse-trace-waterfall.png`
 - [TRACE_WATERFALL_EXPLANATION]: The agent trace contains the top-level `LabAgent.run` span plus nested `retrieve` and `FakeLLM.generate` observations, so `rag_slow` can be localized to retrieval while normal generation remains stable.
 
 ### 3.2 Dashboard & SLOs
-- [DASHBOARD_6_PANELS_SCREENSHOT]: Open `http://127.0.0.1:8000/dashboard`
+- [DASHBOARD_6_PANELS_SCREENSHOT]: `docs/evidence/Dashboard bình thường.png`
 - [SLO_TABLE]:
 | SLI | Target | Window | Current Value |
 |---|---:|---|---:|
@@ -39,7 +39,7 @@
 | Cost Budget | < $2.5/day | 1d | $0.0212 local sample |
 
 ### 3.3 Alerts & Runbook
-- [ALERT_RULES_SCREENSHOT]: `config/alert_rules.yaml`
+- [ALERT_RULES_SCREENSHOT]: `docs/evidence/alert_rules_yaml.png`, `docs/evidence/alerts_md.png`
 - [SAMPLE_RUNBOOK_LINK]: `docs/alerts.md#1-high-latency-p95`
 
 ---
@@ -47,7 +47,7 @@
 ## 4. Incident Response (Group)
 - [SCENARIO_NAME]: rag_slow
 - [SYMPTOMS_OBSERVED]: P95 latency rises above the normal ~150ms baseline when retrieval delay is injected.
-- [ROOT_CAUSE_PROVED_BY]: Trace waterfall should show the nested `retrieve` span consuming most latency; logs retain the same `correlation_id` for request and response.
+- [ROOT_CAUSE_PROVED_BY]: `docs/evidence/incident-rag-slow-load-test.png`, `docs/evidence/Dashboard sau khi bật rag_slow.png`, and `docs/evidence/langfuse-trace-waterfall.png`
 - [FIX_ACTION]: Disable `rag_slow`, inspect retrieval backend, and fall back to a cached or smaller retrieval set.
 - [PREVENTIVE_MEASURE]: Keep the `high_latency_p95` alert and use trace span tags to separate RAG latency from LLM latency.
 
@@ -57,23 +57,23 @@
 
 ### [MEMBER_A_NAME]
 - [TASKS_COMPLETED]: Implemented recursive PII scrubbing and log processor redaction.
-- [EVIDENCE_LINK]: Local diff in `app/pii.py` and `app/logging_config.py`
+- [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
 
 ### [MEMBER_B_NAME]
 - [TASKS_COMPLETED]: Added request context enrichment and nested trace observations for RAG and LLM steps.
-- [EVIDENCE_LINK]: Local diff in `app/main.py`, `app/mock_rag.py`, and `app/mock_llm.py`
+- [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
 
 ### [MEMBER_C_NAME]
 - [TASKS_COMPLETED]: Finalized SLO and alert runbook configuration.
-- [EVIDENCE_LINK]: Local diff in `config/slo.yaml`, `config/alert_rules.yaml`, and `docs/alerts.md`
+- [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
 
 ### [MEMBER_D_NAME]
 - [TASKS_COMPLETED]: Added `/dashboard` with latency, traffic, error-rate, cost, token, and quality panels.
-- [EVIDENCE_LINK]: Local diff in `app/dashboard.py` and `docs/dashboard-spec.md`
+- [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
 
 ### [MEMBER_E_NAME]
 - [TASKS_COMPLETED]: Added test coverage and ran `pytest` plus `scripts/validate_logs.py`.
-- [EVIDENCE_LINK]: Local diff in `tests/test_app_observability.py`, `tests/test_metrics.py`, and `tests/test_pii.py`
+- [EVIDENCE_LINK]: `docs/evidence/git-commit.png`
 
 ---
 
